@@ -39,3 +39,6 @@
 *.db-shm
 *.db
 *.suo
+*.ogg
+*.vcxproj
+*.user
