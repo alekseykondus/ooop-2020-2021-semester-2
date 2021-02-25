@@ -42,3 +42,9 @@
 *.ogg
 *.vcxproj
 *.user
+*.filters
+
+.idea
+cmake-build-debug
+cmake-build-release
+Debug
