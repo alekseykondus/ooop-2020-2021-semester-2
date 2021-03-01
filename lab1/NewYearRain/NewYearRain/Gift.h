@@ -8,6 +8,7 @@ public:
 
 	// Accessors
 	[[nodiscard]] inline sf::FloatRect GetGlobalBounds() { return m_GiftSprite.getGlobalBounds(); }
+	[[nodiscard]] inline sf::Sprite GetGiftSprite() { return m_GiftSprite; }
 
 	// Modifiers
 	void SetTexture(sf::Texture& texture);
@@ -37,8 +38,4 @@ void Gift::MoveGift(int level) {
 
 bool Gift::GiftAbroad(float windowSizeY) {
 	return m_GiftSprite.getPosition().y + 10 > windowSizeY;
-}
-
-void Gift::Draw(sf::RenderWindow& window) {
-	window.draw(m_GiftSprite);
 }

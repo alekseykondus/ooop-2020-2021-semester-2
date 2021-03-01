@@ -1,8 +1,6 @@
 #pragma once
-
 #include <SFML/Graphics.hpp>
-#include <string>
-#include <iostream>
+#include "Assets.h"
 
 class StatisticsBar {
 public:
@@ -15,10 +13,11 @@ public:
 	[[nodiscard]] inline int GetHealthPoints() { return m_HealthPoints; }
 
 	// Modifiers
-	void SetValuesAndPositions(float windowPositionX, float windowPositionY);
+	void SetValues();
+	void SetPositions(float windowPositionX, float windowPositionY);
 
 	// Public methods
-	void Update(float dt);
+	void Update();
 	void Draw(sf::RenderWindow& window);
 	void ScoreUp();
 	void ReduceHealthPoints();
@@ -27,7 +26,6 @@ public:
 private:
 	// Member data
 	int m_Level, m_Score, m_HealthPoints;
-	sf::Font	 m_Font;
 	sf::Text	 m_TextScore;
 	sf::Text	 m_TextLevel;
 	sf::Text	 m_TextHealthPoints;
@@ -35,10 +33,9 @@ private:
 
 StatisticsBar::StatisticsBar() : m_Level(1), m_Score(0), m_HealthPoints(3) {
 
-	m_Font.loadFromFile("C:\\dev\\lab3\\fonts\\19919.ttf");
-	m_TextScore.setFont(m_Font);
-	m_TextLevel.setFont(m_Font);
-	m_TextHealthPoints.setFont(m_Font);
+	m_TextScore.setFont(Assets::Instance().GetFontLemon());
+	m_TextLevel.setFont(Assets::Instance().GetFontLemon());
+	m_TextHealthPoints.setFont(Assets::Instance().GetFontLemon());
 
 	m_TextScore.setCharacterSize(50);
 	m_TextLevel.setCharacterSize(50);
@@ -67,19 +64,19 @@ void StatisticsBar::NewGame() {
 	m_HealthPoints = 3;
 }
 
-void StatisticsBar::SetValuesAndPositions(float windowPositionX, float windowPositionY) {
-
+void StatisticsBar::SetValues() {
 	m_TextScore.setString("Score:" + std::to_string(m_Score));
-	m_TextScore.setPosition(windowPositionX, windowPositionY - 240);
-
 	m_TextLevel.setString("Level:" + std::to_string(m_Level));
-	m_TextLevel.setPosition(windowPositionX, windowPositionY - 180);
-
 	m_TextHealthPoints.setString("HP:" + std::to_string(m_HealthPoints));
+}
+
+void StatisticsBar::SetPositions(float windowPositionX, float windowPositionY) {
+	m_TextScore.setPosition(windowPositionX, windowPositionY - 240);
+	m_TextLevel.setPosition(windowPositionX, windowPositionY - 180);
 	m_TextHealthPoints.setPosition(windowPositionX, windowPositionY - 120);
 }
 
-void StatisticsBar::Update(float dt) {
+void StatisticsBar::Update() {
 	m_Level = m_Score / 10 + 1;
 	m_TextLevel.setString("Level:" + std::to_string(m_Level));
 }

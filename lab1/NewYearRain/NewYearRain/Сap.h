@@ -8,9 +8,9 @@ public:
 
 	// Accessors
 	[[nodiscard]] inline sf::FloatRect GetGlobalBounds() { return m_ÑapSprite.getGlobalBounds(); }
+	[[nodiscard]] inline sf::Sprite& GetÑapSprite() { return m_ÑapSprite; }
 
 	// Modifiers
-	void SetTextureAndPosition(sf::Texture& texture, float windowSizeY);
 
 	// Public methods
 	void Input(float windowSizeX);
@@ -20,11 +20,6 @@ private:
 	// Member data
 	sf::Sprite m_ÑapSprite;
 }; // class Cap
-
-void Cap::SetTextureAndPosition(sf::Texture& texture, float windowSizeY) {
-	m_ÑapSprite.setTexture(texture);
-	m_ÑapSprite.setPosition(400, windowSizeY - m_ÑapSprite.getGlobalBounds().height);
-}
 
 void Cap::Input(float windowSizeX) {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
@@ -36,8 +31,4 @@ void Cap::Input(float windowSizeX) {
 		m_ÑapSprite.setPosition(0, m_ÑapSprite.getPosition().y);
 	if (m_ÑapSprite.getPosition().x < 0)
 		m_ÑapSprite.setPosition(windowSizeX - m_ÑapSprite.getGlobalBounds().height, m_ÑapSprite.getPosition().y);
-}
-
-void Cap::Draw(sf::RenderWindow& window) {
-	window.draw(m_ÑapSprite);
 }

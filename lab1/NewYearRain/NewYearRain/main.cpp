@@ -4,6 +4,8 @@ int main()
 {
 	srand(time(0));
 
-	Engine engine;
-	engine.Start();
+	GameLogic game;
+	GameRender render(&game);
+	Engine engine(&game, &render);
+	engine.Run();
 }
