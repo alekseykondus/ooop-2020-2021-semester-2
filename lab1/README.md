@@ -6,4 +6,4 @@
 
 UML діаграми розміщуються у папці UMLDiagrams.
 
-Посилання на документацію:  
+Посилання на документацію: https://alekseykondus.github.io/documentation/lab1/html/
