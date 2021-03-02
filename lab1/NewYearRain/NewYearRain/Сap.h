@@ -1,20 +1,39 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+/// <summary>
+/// Stores the game header sprite for collecting gifts and methods for working with it
+/// </summary>
 class Cap {
 public:
 	// Constructor
 	Cap() { }
 
 	// Accessors
+	/// <summary>
+	/// Returns the dimensions of the sprite 
+	/// </summary>
+	/// <returns>
+	///  Global bounds of cap 
+	/// </returns>
 	[[nodiscard]] inline sf::FloatRect GetGlobalBounds() { return m_ÑapSprite.getGlobalBounds(); }
-	[[nodiscard]] inline sf::Sprite& GetÑapSprite() { return m_ÑapSprite; }
 
-	// Modifiers
+	/// <summary>
+	/// Returns the sprite cap 
+	/// </summary>
+	/// <returns>
+	///  Sprite cap 
+	/// </returns>
+	[[nodiscard]] inline sf::Sprite& GetCapSprite() { return m_ÑapSprite; }
 
 	// Public methods
+	/// <summary>
+	/// Handles pressing the Left Right keys (event handling)
+	/// </summary>
+	/// <returns>
+	///  Nothing
+	/// </returns>
 	void Input(float windowSizeX);
-	void Draw(sf::RenderWindow& window);
 
 private:
 	// Member data

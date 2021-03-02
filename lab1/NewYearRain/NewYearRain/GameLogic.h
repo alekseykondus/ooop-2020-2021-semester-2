@@ -6,33 +6,117 @@
 #include "StatisticsBar.h"
 #include "MenuScene.h"
 
+/// <summary>
+/// Responsible for the logic of the program 
+/// </summary>
 class GameLogic
 {
 public:
+    /// <summary>
+    /// Responsible for the current scene 
+    /// </summary>
     enum class Scene { _GameScene = 1, _MenuScene = 2 };
+    /// <summary>
+    /// Static variable window width 
+    /// </summary>
     static const int WINDOW_WIDTH = 800;
+    /// <summary>
+    /// Static variable window height 
+    /// </summary>
     static const int WINDOW_HEIGHT = 600;
 
     // Constructor
     GameLogic() { };
 
     // Accessors
+    /// <summary>
+    /// Used to check the end of the game 
+    /// </summary>
+    /// <returns>
+	///  Returns 1 if the game is over and 0 if the game is in progress 
+	/// </returns>
     [[nodiscard]] inline bool GetEndGame() { return m_EndGame; }
+
+    /// <summary>
+    /// Used to find out which scene the game is currently in
+    /// </summary>
+    /// <returns>
+    ///  Returns the current scene 
+    /// </returns>
     [[nodiscard]] inline Scene GetScene() { return m_Scene; }
+    /// <summary>
+    /// Needed for rendering 
+    /// </summary>
+    /// <returns>
+    ///  Returns the cap 
+    /// </returns>
     [[nodiscard]] inline Cap& GetCap() { return m_Cap; }
+    /// <summary>
+    /// Needed to add gifts to this vector 
+    /// </summary>
+    /// <returns>
+    ///  Returns a vector of gifts
+    /// </returns>
     [[nodiscard]] inline std::vector<Gift>& GetGifts() { return m_Gifts; }
+    /// <summary>
+    /// Used to draw gifts that are on the field  
+    /// </summary>
+    /// <returns>
+    /// Returns a vector of gifts
+    /// </returns>
     [[nodiscard]] inline std::vector<Gift>& GetFieldGifts() { return m_FieldGifts; }
+    /// <summary>
+    /// Used to draw statistics 
+    /// </summary>
+    /// <returns>
+    /// Returns a statistics bar
+    /// </returns>
     [[nodiscard]] inline StatisticsBar& GetStatisticsBar() { return m_StatisticsBar; }
+    /// <summary>
+    /// Used to draw menu 
+    /// </summary>
+    /// <returns>
+    /// Returns a menu
+    /// </returns>
     [[nodiscard]] inline MenuScene& GetMenuScene() { return m_MenuScene; }
+    /// <summary>
+    /// Used to play the melody "fail" (when the player has not caught the gift) 
+    /// </summary>
+    /// <returns>
+    /// Returns the sound of failure 
+    /// </returns>
     [[nodiscard]] inline sf::Sound& GetSoundFail() { return m_SoundFail; }
+    /// <summary>
+    /// Used to play the melody "end game" (when the player lost) 
+    /// </summary>
+    /// <returns>
+    /// Returns a loss melody
+    /// </returns>
     [[nodiscard]] inline sf::Sound& GetSoundEndGame() { return m_SoundEndGame; }
 
-    // Modifiers
 
     // Public methods
+    /// <summary>
+    /// The main method of this class. This is where the logic of the game is implemented
+    /// </summary>
+    /// <returns>
+    /// Nothing
+    /// </returns>
 	void LogicOfGameScene();
-	void Input();
+    /// <summary>
+    /// Update (this is where GameLogic :: LogicOfGameScene () starts) 
+    /// </summary>
+    /// <returns>
+    ///  Nothing
+    /// </returns>
+    /// See <see cref = "GameLogic.LogicOfGameScene()"/>
 	void Update();
+    /// <summary>
+    /// Clears all data (resets to the start of the game)
+    /// </summary>
+    /// <returns>
+    ///  Nothing
+    /// </returns>
 	void Start();
 
 private:
@@ -60,9 +144,6 @@ void GameLogic::Start() {
 		m_FieldGifts.clear();
 	}
 	m_StatisticsBar.SetValues();
-}
-
-void GameLogic::Input() {
 }
 
 void GameLogic::Update() {

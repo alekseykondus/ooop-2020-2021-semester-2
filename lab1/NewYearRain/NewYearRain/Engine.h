@@ -2,20 +2,27 @@
 #include <fstream>
 #include "GameRender.h"
 
-class GameController
-{
-public:
-    GameController(GameLogic* game, GameRender* render);
-    void Start();
-};
-
+/// <summary>
+/// Game engine
+/// </summary>
 class Engine
 {
 public:
     // Constructor
+    /// <summary>
+    /// Engine class constructor, accepts a GameLogic pointer and a GameRender pointer 
+    /// </summary>
+    /// See <see cref = "GameLogic"/>
+    /// <seealso cref = "GameRender"/>
     Engine(GameLogic* gameLogic, GameRender* gameRender);
 
     // Public methods
+    /// <summary>
+    /// Method launches the game
+    /// </summary>
+    /// <returns>
+    /// Nothing
+    /// </returns>
     void Run();
 
 private:

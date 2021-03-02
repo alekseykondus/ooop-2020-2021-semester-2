@@ -2,21 +2,53 @@
 #include <SFML/Graphics.hpp>
 #include "Assets.h"
 
+/// <summary>
+/// Responsible for storing data for the menu scene
+/// </summary>
 class MenuScene {
 
 public:
 	// Constructor
 	MenuScene();
 
-	// Accessors
-
 	// Modifiers
+	/// <summary>
+	/// Sets initial data
+	/// </summary>
+	/// <returns>
+	/// Nothing
+	/// </returns>
 	void SetValues(int result);
+	/// <summary>
+	/// Sets the position of elements
+	/// </summary>
+	/// <returns>
+	/// Nothing
+	/// </returns>
 	void SetPositions(float windowPositionX, float windowPositionY);
 
 	// Public methods
+	/// <summary>
+	/// Handles events during the menu scene
+	/// </summary>
+	/// <returns>
+	/// Returns 1 if the user clicked "New game" 
+	/// </returns>
 	bool Input(sf::RenderWindow& renderWindow);
+	/// <summary>
+	/// Scene menu update
+	/// </summary>
+	/// <returns>
+	///  Nothing
+	/// </returns>
 	void Update();
+	/// <summary>
+	/// Called in the GameRender class to render the menu scene
+	/// </summary>
+	/// <returns>
+	///  Nothing
+	/// </returns>
+	/// <seealso cref = "GameRender"/>
 	void Draw(sf::RenderWindow& window);
 
 private:

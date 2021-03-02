@@ -1,6 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+/// <summary>
+/// Responsible for loading game resources 
+/// </summary>
 class Assets {
 public:
 	// Constructor
@@ -10,19 +13,29 @@ public:
 	[[nodiscard]] inline sf::Font& GetFontLemon() { return m_FontLemon; }
 	[[nodiscard]] inline sf::Font& GetFontAllura() { return m_FontAllura; }
 	[[nodiscard]] inline sf::Texture& GetBackgroundTexture() { return m_BackgroundTexture; }
-	[[nodiscard]] inline sf::Texture& Get—apTexture() { return m_—apTexture; }
+	[[nodiscard]] inline sf::Texture& GetCapTexture() { return m_—apTexture; }
 	[[nodiscard]] inline sf::Texture& GetEndGameTexture() { return m_EndGameTexture; }
 	[[nodiscard]] inline std::vector <sf::Texture>& GetGiftsTexture() { return m_GiftsTexture; }
 	[[nodiscard]] inline sf::SoundBuffer& GetSoundBufferFail() { return m_SoundBufferFail; }
 	[[nodiscard]] inline sf::SoundBuffer& GetSoundBufferEndGame() { return m_SoundBufferEndGame; }
 
-	// Modifiers
-
 	// Public methods
+	/// <summary>
+	/// Creates a static variable Assets 
+	/// </summary>
+	/// <returns>
+	/// Returns the static variable Assets
+	/// </returns>
 	static Assets& Instance() {
 		static Assets r;
 		return r;
 	}
+	/// <summary>
+	/// Method loads fonts, sounds, textures
+	/// </summary>
+	/// <returns>
+	/// Nothing
+	/// </returns>
 	void Load();
 
 private:

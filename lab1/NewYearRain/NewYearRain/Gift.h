@@ -1,22 +1,60 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+/// <summary>
+/// Stores the gift sprite and methods for working with it
+/// </summary>
 class Gift {
 public:
 	// Constructor
 	Gift() { }
 
 	// Accessors
+	/// <summary>
+	/// Returns the dimensions of the sprite 
+	/// </summary>
+	/// <returns>
+	/// Global bounds of gift 
+	/// </returns>
 	[[nodiscard]] inline sf::FloatRect GetGlobalBounds() { return m_GiftSprite.getGlobalBounds(); }
+	/// <summary>
+	/// Returns the sprite gift 
+	/// </summary>
+	/// <returns>
+	///  Sprite gift 
+	/// </returns>
 	[[nodiscard]] inline sf::Sprite GetGiftSprite() { return m_GiftSprite; }
 
 	// Modifiers
+	/// <summary>
+	/// Sets the texture of the sprite's gift
+	/// </summary>
+	/// <returns>
+	/// Nothing
+	/// </returns>
 	void SetTexture(sf::Texture& texture);
+	/// <summary>
+	/// Sets the position of the gift sprite 
+	/// </summary>
+	/// <returns>
+	/// Nothing
+	/// </returns>
 	void SetPosition(float windowSizeX);
 
 	// Public methods
-	void Draw(sf::RenderWindow& window);
+	/// <summary>
+	/// Gift movement (gift falls down)
+	/// </summary>
+	/// <returns>
+	/// Nothing
+	/// </returns>
 	void MoveGift(int level);
+	/// <summary>
+	/// Needed to control whether the gift has gone beyond the window 
+	/// </summary>
+	/// <returns>
+	/// Returns 1 if the gift is out of bounds
+	/// </returns>
 	bool GiftAbroad(float windowSizeY);
 
 private:

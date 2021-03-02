@@ -1,5 +1,8 @@
 #include "Engine.h"
 
+/// <summary>
+/// Game New Year Rain
+/// </summary>
 int main()
 {
 	srand(time(0));

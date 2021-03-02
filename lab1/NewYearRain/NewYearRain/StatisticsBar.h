@@ -2,25 +2,92 @@
 #include <SFML/Graphics.hpp>
 #include "Assets.h"
 
+/// <summary>
+/// Responsible for storing statistical data
+/// </summary>
 class StatisticsBar {
 public:
 	// Constructor
 	StatisticsBar();
 
 	// Accessors
+	/// <summary>
+	/// Called in the GameLogic class to find out what level the player is on 
+	/// </summary>
+	/// <returns>
+	/// Returns the game level
+	/// </returns>
+	/// <seealso cref = "GameLogic"/>
 	[[nodiscard]] inline int GetLevel() { return m_Level; }
+	/// <summary>
+	/// Called in the GameLogic class to find out the number of gifts collected 
+	/// </summary>
+	/// <returns>
+	/// Returns the game score
+	/// </returns>
+	/// <seealso cref = "GameLogic"/>
 	[[nodiscard]] inline int GetScore() { return m_Score; }
+	/// <summary>
+	/// Called in the GameLogic class to monitor health points 
+	/// </summary>
+	/// <returns>
+	/// Returns health points
+	/// </returns>
+	/// <seealso cref = "GameLogic"/>
 	[[nodiscard]] inline int GetHealthPoints() { return m_HealthPoints; }
 
 	// Modifiers
+	/// <summary>
+	/// Sets data to text
+	/// </summary>
+	/// <returns>
+	/// Nothing
+	/// </returns>
 	void SetValues();
+	/// <summary>
+	/// Sets the position of elements
+	/// </summary>
+	/// <returns>
+	/// Nothing
+	/// </returns>
 	void SetPositions(float windowPositionX, float windowPositionY);
 
 	// Public methods
+	/// <summary>
+	/// Statistics bar update
+	/// </summary>
+	/// <returns>
+	/// Nothing
+	/// </returns>
 	void Update();
+	/// <summary>
+	/// Called in the GameRender class to render the statistics bar
+	/// </summary>
+	/// <returns>
+	///  Nothing
+	/// </returns>
+	/// <seealso cref = "GameRender"/>
 	void Draw(sf::RenderWindow& window);
+	/// <summary>
+	/// Increases the number of collected gifts (score) 
+	/// </summary>
+	/// <returns>
+	/// Nothing
+	/// </returns>
 	void ScoreUp();
+	/// <summary>
+	/// Reducing health points when the gift was not caught
+	/// </summary>
+	/// <returns>
+	/// Nothing
+	/// </returns>
 	void ReduceHealthPoints();
+	/// <summary>
+	/// Resets statistics before starting a new game
+	/// </summary>
+	/// <returns>
+	/// Nothing
+	/// </returns>
 	void NewGame();
 
 private:
@@ -46,7 +113,6 @@ StatisticsBar::StatisticsBar() : m_Level(1), m_Score(0), m_HealthPoints(3) {
 	m_TextHealthPoints.setFillColor(sf::Color::White);
 
 }
-
 
 void StatisticsBar::ScoreUp() {
 	m_Score++;
