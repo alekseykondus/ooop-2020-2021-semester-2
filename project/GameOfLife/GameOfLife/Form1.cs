@@ -25,9 +25,6 @@ namespace GameOfLife
             if (timer1.Enabled)
                 return;
 
-
-
-
             nudResolution.Enabled = false;
             nudDansity.Enabled = false;
             resolution = (int)nudResolution.Value;
@@ -105,7 +102,5 @@ namespace GameOfLife
             }
 
         }
-
-   
     }
 }

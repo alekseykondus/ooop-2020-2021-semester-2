@@ -12,7 +12,6 @@ namespace GameOfLife
         private bool[,] field;
         private readonly int rows;
         private readonly int cols;
-        private Random random = new Random();
 
         public GameEngine(int rows, int cols, int density)
         { 
@@ -20,6 +19,7 @@ namespace GameOfLife
             this.cols = cols;
             field = new bool[cols, rows];
 
+            Random random = new Random();
             for (int x = 0; x < cols; x++)
             {
                 for (int y = 0; y < rows; y++)
@@ -28,7 +28,6 @@ namespace GameOfLife
                 }
             }
         }
-
         private int CountNeighbours(int x, int y)
         {
             int count = 0;
@@ -85,7 +84,6 @@ namespace GameOfLife
         {
             return x >= 0 && y >= 0 && x < cols && y < rows;
         }
-
         private void UpdateCell(int x, int y, bool state)
         {
             if (ValidateCellPosition(x, y))
