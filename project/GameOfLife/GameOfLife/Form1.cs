@@ -20,6 +20,9 @@ namespace GameOfLife
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Launches the game, sets the initial settings
+        /// </summary
         private void StartGame() 
         {
             if (timer1.Enabled)
@@ -45,6 +48,9 @@ namespace GameOfLife
             timer1.Start();
         }
 
+        /// <summary>
+        /// Draws a new field 
+        /// </summary
         private void DrawNextGeneration() {
 
             graphics.Clear(Color.Black);
@@ -61,6 +67,9 @@ namespace GameOfLife
             gameEngine.NextGeneration();
         }
 
+        /// <summary>
+        /// Stops the game
+        /// </summary
         private void StopGame() {
             if (!timer1.Enabled)
                 return;
