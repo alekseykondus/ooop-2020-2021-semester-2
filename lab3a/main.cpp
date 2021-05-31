@@ -82,6 +82,9 @@ TEST_CASE("checking if sorting is correct") {
 #endif
 
 
+/// <summary>
+/// Multithreaded Quicksort
+/// </summary>
 int main() {
 
 #ifdef DOCTEST_CONFIG_IMPLEMENT
